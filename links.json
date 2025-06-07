@@ -1,0 +1,56 @@
+{
+  "title": "My Links",
+  "lastUpdated": "June 2025",
+  "sections": [
+    {
+      "title": "Social Media",
+      "links": [
+        {
+          "title": "Twitter",
+          "description": "Follow me for updates and thoughts",
+          "url": "https://twitter.com/yourhandle"
+        },
+        {
+          "title": "LinkedIn", 
+          "description": "Professional network and career updates",
+          "url": "https://linkedin.com/in/yourprofile"
+        },
+        {
+          "title": "GitHub",
+          "description": "Check out my code and projects", 
+          "url": "https://github.com/yourusername"
+        }
+      ]
+    },
+    {
+      "title": "Projects",
+      "links": [
+        {
+          "title": "Personal Website",
+          "description": "My main website and portfolio",
+          "url": "https://yourwebsite.com"
+        },
+        {
+          "title": "Blog",
+          "description": "Articles and thoughts on various topics",
+          "url": "https://yourblog.com"
+        }
+      ]
+    },
+    {
+      "title": "Resources", 
+      "links": [
+        {
+          "title": "Resume",
+          "description": "Download my latest resume",
+          "url": "https://docs.google.com/document/d/your-resume"
+        },
+        {
+          "title": "Contact Me",
+          "description": "Get in touch via email",
+          "url": "mailto:your.email@example.com"
+        }
+      ]
+    }
+  ]
+}

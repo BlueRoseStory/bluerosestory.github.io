@@ -13,19 +13,19 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
             min-height: 100vh;
             padding: 20px;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 1200px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
         }
 
         h1 {
@@ -42,41 +42,51 @@
 
         .section-title {
             font-size: 1.2em;
-            color: #555;
+            color: #1e40af;
             margin-bottom: 15px;
             font-weight: 600;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid #3b82f6;
             padding-bottom: 5px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
         .link-item {
             display: block;
-            padding: 15px 20px;
-            margin-bottom: 10px;
+            padding: 20px;
             background: #fff;
             color: #333;
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 15px;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            height: 100%;
         }
 
         .link-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
-            background: #f8f9ff;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25);
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-color: #3b82f6;
         }
 
         .link-title {
-            font-weight: 600;
-            font-size: 1.1em;
-            margin-bottom: 5px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #1e40af;
         }
 
         .link-description {
-            color: #666;
-            font-size: 0.9em;
+            color: #64748b;
+            font-size: 0.95em;
+            line-height: 1.4;
         }
 
         .footer {
@@ -86,7 +96,7 @@
             font-size: 0.9em;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .container {
                 padding: 20px;
                 margin: 10px;
@@ -95,56 +105,94 @@
             h1 {
                 font-size: 2em;
             }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .links-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>My Links</h1>
-        
-        <div class="links-section">
-            <h2 class="section-title">Social Media</h2>
-            <a href="https://twitter.com/yourhandle" class="link-item" target="_blank">
-                <div class="link-title">Twitter</div>
-                <div class="link-description">Follow me for updates and thoughts</div>
-            </a>
-            <a href="https://linkedin.com/in/yourprofile" class="link-item" target="_blank">
-                <div class="link-title">LinkedIn</div>
-                <div class="link-description">Professional network and career updates</div>
-            </a>
-            <a href="https://github.com/yourusername" class="link-item" target="_blank">
-                <div class="link-title">GitHub</div>
-                <div class="link-description">Check out my code and projects</div>
-            </a>
+        <h1 id="page-title">My Links</h1>
+        <div id="links-container">
+            <!-- Links will be loaded here by JavaScript -->
         </div>
-
-        <div class="links-section">
-            <h2 class="section-title">Projects</h2>
-            <a href="https://yourwebsite.com" class="link-item" target="_blank">
-                <div class="link-title">Personal Website</div>
-                <div class="link-description">My main website and portfolio</div>
-            </a>
-            <a href="https://yourblog.com" class="link-item" target="_blank">
-                <div class="link-title">Blog</div>
-                <div class="link-description">Articles and thoughts on various topics</div>
-            </a>
-        </div>
-
-        <div class="links-section">
-            <h2 class="section-title">Resources</h2>
-            <a href="https://docs.google.com/document/d/your-resume" class="link-item" target="_blank">
-                <div class="link-title">Resume</div>
-                <div class="link-description">Download my latest resume</div>
-            </a>
-            <a href="mailto:your.email@example.com" class="link-item">
-                <div class="link-title">Contact Me</div>
-                <div class="link-description">Get in touch via email</div>
-            </a>
-        </div>
-
         <div class="footer">
-            <p>Last updated: June 2025</p>
+            <p>Last updated: <span id="last-updated">June 2025</span></p>
         </div>
     </div>
+
+    <script>
+        // Load links from JSON file
+        async function loadLinks() {
+            try {
+                const response = await fetch('links.json');
+                const data = await response.json();
+                
+                // Update page title if provided
+                if (data.title) {
+                    document.getElementById('page-title').textContent = data.title;
+                }
+                
+                // Update last updated date if provided
+                if (data.lastUpdated) {
+                    document.getElementById('last-updated').textContent = data.lastUpdated;
+                }
+                
+                // Create sections
+                const container = document.getElementById('links-container');
+                data.sections.forEach(section => {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.className = 'links-section';
+                    
+                    const sectionTitle = document.createElement('h2');
+                    sectionTitle.className = 'section-title';
+                    sectionTitle.textContent = section.title;
+                    
+                    const linksGrid = document.createElement('div');
+                    linksGrid.className = 'links-grid';
+                    
+                    section.links.forEach(link => {
+                        const linkElement = document.createElement('a');
+                        linkElement.href = link.url;
+                        linkElement.className = 'link-item';
+                        linkElement.target = link.url.startsWith('mailto:') ? '_self' : '_blank';
+                        
+                        const linkTitle = document.createElement('div');
+                        linkTitle.className = 'link-title';
+                        linkTitle.textContent = link.title;
+                        
+                        const linkDescription = document.createElement('div');
+                        linkDescription.className = 'link-description';
+                        linkDescription.textContent = link.description;
+                        
+                        linkElement.appendChild(linkTitle);
+                        linkElement.appendChild(linkDescription);
+                        linksGrid.appendChild(linkElement);
+                    });
+                    
+                    sectionDiv.appendChild(sectionTitle);
+                    sectionDiv.appendChild(linksGrid);
+                    container.appendChild(sectionDiv);
+                });
+                
+            } catch (error) {
+                console.error('Error loading links:', error);
+                document.getElementById('links-container').innerHTML = 
+                    '<p style="text-align: center; color: #666;">Error loading links. Please make sure links.json exists.</p>';
+            }
+        }
+        
+        // Load links when page loads
+        document.addEventListener('DOMContentLoaded', loadLinks);
+    </script>
 </body>
 </html>
