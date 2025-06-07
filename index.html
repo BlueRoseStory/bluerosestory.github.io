@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+
+        .links-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+
+        .link-item {
+            display: block;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            background: #fff;
+            color: #333;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #667eea;
+        }
+
+        .link-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+            background: #f8f9ff;
+        }
+
+        .link-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .link-description {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Links</h1>
+        
+        <div class="links-section">
+            <h2 class="section-title">Social Media</h2>
+            <a href="https://twitter.com/yourhandle" class="link-item" target="_blank">
+                <div class="link-title">Twitter</div>
+                <div class="link-description">Follow me for updates and thoughts</div>
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" class="link-item" target="_blank">
+                <div class="link-title">LinkedIn</div>
+                <div class="link-description">Professional network and career updates</div>
+            </a>
+            <a href="https://github.com/yourusername" class="link-item" target="_blank">
+                <div class="link-title">GitHub</div>
+                <div class="link-description">Check out my code and projects</div>
+            </a>
+        </div>
+
+        <div class="links-section">
+            <h2 class="section-title">Projects</h2>
+            <a href="https://yourwebsite.com" class="link-item" target="_blank">
+                <div class="link-title">Personal Website</div>
+                <div class="link-description">My main website and portfolio</div>
+            </a>
+            <a href="https://yourblog.com" class="link-item" target="_blank">
+                <div class="link-title">Blog</div>
+                <div class="link-description">Articles and thoughts on various topics</div>
+            </a>
+        </div>
+
+        <div class="links-section">
+            <h2 class="section-title">Resources</h2>
+            <a href="https://docs.google.com/document/d/your-resume" class="link-item" target="_blank">
+                <div class="link-title">Resume</div>
+                <div class="link-description">Download my latest resume</div>
+            </a>
+            <a href="mailto:your.email@example.com" class="link-item">
+                <div class="link-title">Contact Me</div>
+                <div class="link-description">Get in touch via email</div>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>Last updated: June 2025</p>
+        </div>
+    </div>
+</body>
+</html>
